@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Angel Academy — Formations Lissage & Soins Capillaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* NOUVELLE PALETTE DE COULEURS : Blanc, Gris Très Foncé, Beige */
+  --white: #FFFFFF;
+  --grey-dark: #2D2D2D; /* Gris très foncé pour le texte et les accents */
+  --beige: #F5F2EB; /* Beige clair pour les arrière-plans */
+  --beige-dark: #E8E4D9; /* Beige légèrement plus soutenu */
+  --text: var(--grey-dark);
+  --text-mid: #555555; /* Gris moyen pour le texte secondaire */
+  --text-light: #888888; /* Gris clair pour les détails */
+
+  /* Anciennes variables adaptées */
+  --rose: var(--grey-dark); /* Remplacement de la couleur rose par le gris foncé */
+  --rose-deep: var(--grey-dark); /* Remplacement de la couleur rose profond par le gris foncé */
+  --rose-pale: var(--beige); /* Remplacement du rose pâle par le beige */
+  --cream: var(--white); /* Remplacement du crème par le blanc */
+  --brown: var(--grey-dark); /* Remplacement du marron par le gris foncé */
+
+  --gradient-hero: linear-gradient(135deg, var(--white) 0%, var(--beige) 100%);
+  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.05);
+
+  /* NOUVELLE POLICE SPÉCIALE */
+  --font-special: 'Cinzel Decorative', cursive; /* Remplacement de Dancing Script */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); overflow-x: hidden; }
+
+/* Adoucissement des coupures entre sections */
+section { position: relative; }
+
+.petal-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+.petal { position: absolute; opacity: 0.04; animation: floatPetal linear infinite; color: var(--grey-dark); }
+@keyframes floatPetal {
+  0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.04; } 90% { opacity: 0.04; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 4rem; height: 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(45, 45, 45, 0.08);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; font-family: var(--font-special); font-size: 1.6rem; color: var(--grey-dark); text-decoration: none; font-weight: 700; }
+.nav-logo svg { width: 26px; height: 26px; flex-shrink: 0; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--grey-dark); transform: scaleX(0); transition: transform 0.3s; transform-origin: center; }
+.nav-links a:hover { color: var(--grey-dark); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { background: var(--grey-dark); color: white; padding: 0.65rem 1.6rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-weight: 500; border-radius: 50px; transition: all 0.3s; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); display: flex; align-items: center; gap: 0.5rem; }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); background: #444; }
+.nav-cta svg { width: 13px; height: 13px; }
+
+/* MODIF : HERO SECTION REDUITE ET PLUS LARGE */
+.hero { min-height: 70vh; padding-top: 100px; padding-bottom: 3rem; background: var(--gradient-hero); display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; position: relative; overflow: hidden; }
+.hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.2; pointer-events: none; }
+.hero-blob-1 { width: 500px; height: 500px; background: var(--beige-dark); top: -100px; right: -100px; }
+.hero-blob-2 { width: 400px; height: 400px; background: var(--beige); bottom: -100px; left: -50px; }
+
+.hero-content { padding: 0 3rem 0 6rem; position: relative; z-index: 2; }
+.hero-script { font-family: var(--font-special); font-size: 1.4rem; color: var(--grey-dark); margin-bottom: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; font-weight: 700; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 4vw, 3.8rem); font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.8s ease 0.35s forwards; max-width: 900px; }
+.hero-title em { font-style: italic; color: var(--grey-dark); }
+.hero-tagline { font-size: 1rem; line-height: 1.7; color: var(--text-mid); font-weight: 400; max-width: 500px; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards; }
+.hero-badges { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.65s forwards; }
+.badge-pill { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(45, 45, 45, 0.15); padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.75rem; color: var(--grey-dark); font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
+.badge-pill svg { width: 14px; height: 14px; color: var(--grey-dark); flex-shrink: 0; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards; }
+
+.btn-rose { background: var(--grey-dark); color: white; padding: 1rem 2.2rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-rose:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); background: #444; }
+.btn-rose svg { width: 16px; height: 16px; }
+.btn-ghost { background: transparent; color: var(--grey-dark); border: 2px solid var(--grey-dark); padding: 0.9rem 2.2rem; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; text-decoration: none; border-radius: 50px; transition: all 0.3s; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; }
+.btn-ghost:hover { background: rgba(45, 45, 45, 0.05); transform: translateY(-2px); }
+.btn-ghost svg { width: 16px; height: 16px; }
+
+/* MODIF : HERO VISUAL PLUS PREMIUM */
+.hero-visual { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; padding: 2rem 4rem 2rem 0; }
+.hero-card-stack { position: relative; width: 100%; max-width: 400px; }
+.hero-main-card { background: white; border-radius: 30px; padding: 12px; box-shadow: var(--shadow-premium); opacity: 0; animation: fadeUp 1s ease 0.5s forwards; border: 1px solid rgba(45, 45, 45, 0.1); }
+.hero-card-img { width: 100%; height: 380px; border-radius: 20px; overflow: hidden; position: relative; }
+.hero-card-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
+.hero-float-card { position: absolute; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-radius: 16px; padding: 1rem 1.3rem; box-shadow: var(--shadow-sm); display: flex; align-items: center; gap: 0.8rem; border: 1px solid rgba(45, 45, 45, 0.1); }
+.hero-float-1 { bottom: 30px; left: -40px; opacity: 0; animation: floatIn 0.8s ease 1.2s forwards; }
+.float-icon { width: 32px; height: 32px; flex-shrink: 0; color: var(--grey-dark); }
+.float-text { font-size: 0.78rem; color: var(--text); font-weight: 400; line-height: 1.4; }
+.float-text strong { color: var(--grey-dark); font-weight: 600; }
+
+/* MODIF : MARQUEE PLUS HAUTE */
+.marquee-band { background: var(--grey-dark); padding: 1.4rem 0; overflow: hidden; }
+.marquee-track { display: flex; gap: 0; white-space: nowrap; animation: marquee 25s linear infinite; }
+.marquee-item { font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.9); font-weight: 500; padding: 0 2rem; display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; }
+.marquee-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+/* STATS */
+.stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--white); border-bottom: 1px solid rgba(45, 45, 45, 0.08); }
+.stat-cell { padding: 3rem 2rem; text-align: center; position: relative; }
+.stat-cell:not(:last-child)::after { content: ''; position: absolute; top: 20%; right: 0; width: 1px; height: 60%; background: rgba(45, 45, 45, 0.1); }
+.stat-icon { width: 34px; height: 34px; margin: 0 auto 0.8rem; color: var(--grey-dark); opacity: 0.8; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--grey-dark); line-height: 1; margin-bottom: 0.4rem; }
+.stat-lbl { font-size: 0.75rem; color: var(--text-mid); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+.section-kicker { font-family: var(--font-special); font-size: 1.2rem; color: var(--grey-dark); margin-bottom: 0.5rem; display: block; text-align: center; font-weight: 700; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.2; color: var(--text); text-align: center; }
+.section-title em { font-style: italic; color: var(--grey-dark); }
+.section-sub { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; font-weight: 400; text-align: center; max-width: 600px; margin: 1rem auto 0; }
+
+/* FORMATIONS (Couleurs adoucies) */
+.formations { padding: 6rem 5rem; background: linear-gradient(180deg, var(--white) 0%, var(--beige) 100%); }
+.formations-header { margin-bottom: 4rem; }
+.formations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+
+.form-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.4s; border: 1px solid rgba(45, 45, 45, 0.08); }
+.form-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-premium); }
+.form-card-top { background: linear-gradient(135deg, var(--beige), var(--white)); padding: 2.5rem; display: flex; gap: 1.5rem; align-items: flex-start; position: relative; border-bottom: 1px solid rgba(45, 45, 45, 0.05); }
+.form-num { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 700; color: rgba(45, 45, 45, 0.08); line-height: 0.8; flex-shrink: 0; }
+.form-type { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-dark); font-weight: 600; margin-bottom: 0.6rem; display: inline-block; }
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.form-icon { width: 42px; height: 42px; position: absolute; top: 2rem; right: 2rem; color: var(--grey-dark); opacity: 0.15; }
+.form-card-body { padding: 2rem 2.5rem; }
+.form-modules { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.form-modules li { font-size: 0.9rem; color: var(--text-mid); font-weight: 400; display: flex; gap: 0.8rem; line-height: 1.6; }
+.form-modules li::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--grey-dark); flex-shrink: 0; margin-top: 0.5rem; }
+
+/* MODIF : SECTION ETUDES DE CAS (Remplace les avis) */
+.cas-section { padding: 6rem 5rem; background: linear-gradient(180deg, var(--beige) 0%, var(--white) 100%); }
+.cas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+.cas-card { background: white; border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-sm); border: 1px solid rgba(45, 45, 45, 0.08); transition: all 0.4s; position: relative; overflow: hidden; }
+.cas-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+.cas-badge { display: inline-block; padding: 0.3rem 0.8rem; background: var(--beige); color: var(--grey-dark); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 50px; margin-bottom: 1.2rem; }
+.cas-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1.5rem; line-height: 1.3; }
+.cas-block { margin-bottom: 1.2rem; }
+.cas-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); font-weight: 600; display: block; margin-bottom: 0.3rem; }
+.cas-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+.cas-result { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(45, 45, 45, 0.1); }
+.cas-result .cas-label { color: var(--grey-dark); }
+.cas-result-value { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--grey-dark); }
+
+/* BOOKING & LIVE */
+.booking-live { padding: 6rem 5rem; background: var(--white); display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.booking-col { background: linear-gradient(160deg, var(--white), var(--beige)); border-radius: 30px; padding: 3.5rem; box-shadow: var(--shadow-sm); border: 1px solid rgba(45, 45, 45, 0.08); }
+.booking-col .section-kicker { text-align: left; }
+.booking-col h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--text); margin: 0.5rem 0 1rem; line-height: 1.2; }
+.booking-col h2 em { font-style: italic; color: var(--grey-dark); }
+.booking-col > p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; font-weight: 400; margin-bottom: 2.5rem; }
+.booking-perks { list-style: none; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.booking-perks li { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--text); font-weight: 500; }
+.perk-icon { width: 32px; height: 32px; border-radius: 10px; background: var(--beige); display: flex; align-items: center; justify-content: center; color: var(--grey-dark); flex-shrink: 0; }
+.perk-icon svg { width: 16px; height: 16px; }
+
+.live-header { background: var(--grey-dark); border-radius: 30px 30px 0 0; padding: 2.5rem; color: white; position: relative; overflow: hidden; }
+.live-header::before { content: ''; position: absolute; top: -20px; right: -20px; width: 150px; height: 150px; background: rgba(255,255,255,0.05); border-radius: 50%; }
+.live-dot-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.2); border-radius: 50px; padding: 0.4rem 1rem; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+.live-pulse { width: 8px; height: 8px; background: #FF7676; border-radius: 50%; animation: pulse 1.5s infinite; }
+.live-header h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; margin-bottom: 0.8rem; }
+.live-header p { font-size: 0.9rem; opacity: 0.9; font-weight: 400; line-height: 1.6; }
+.live-form-box { background: white; border-radius: 0 0 30px 30px; padding: 2.5rem; box-shadow: var(--shadow-sm); border: 1px solid rgba(45, 45, 45, 0.08); border-top: none; }
+.live-form-box h4 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.live-form-box h4 svg { width: 18px; height: 18px; color: var(--grey-dark); }
+.live-replay-note { margin-top: 1.5rem; padding: 1rem 1.2rem; background: var(--beige); border-radius: 12px; font-size: 0.8rem; color: var(--text-mid); font-weight: 500; line-height: 1.6; display: flex; align-items: flex-start; gap: 0.8rem; }
+.live-replay-note svg { width: 18px; height: 18px; color: var(--grey-dark); flex-shrink: 0; margin-top: 2px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.5rem; font-weight: 600; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; background: var(--white); border: 1px solid rgba(45, 45, 45, 0.15); border-radius: 12px; padding: 0.9rem 1.2rem; font-size: 0.9rem; color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 500; outline: none; transition: all 0.3s; }
+.form-group input:focus, .form-group select:focus { border-color: var(--grey-dark); background: white; box-shadow: 0 0 0 4px rgba(45, 45, 45, 0.05); }
+
+/* MODIF : PRÉSENTIEL CENTRÉ SUR 3 VILLES */
+.presentiel { padding: 6rem 5rem; background: linear-gradient(180deg, var(--white) 0%, var(--beige) 100%); }
+.dates-grid { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 1100px; margin: 3rem auto 0; gap: 2rem; }
+.date-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s; border: 1px solid rgba(45, 45, 45, 0.08); }
+.date-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-premium); }
+.date-card-top { height: 140px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem; position: relative; background: linear-gradient(135deg, var(--beige), var(--beige-dark)); }
+.date-city-icon { width: 40px; height: 40px; color: var(--grey-dark); opacity: 0.8; }
+.date-ville-badge { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; background: white; padding: 0.4rem 1rem; border-radius: 50px; color: var(--grey-dark); font-weight: 600; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+.date-card-body { padding: 2rem; }
+.date-form-name { font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 0.8rem; text-align: center; }
+.date-info { font-size: 0.85rem; color: var(--text-mid); font-weight: 500; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+.date-info-line { display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+.date-info-line svg { width: 14px; height: 14px; color: var(--grey-dark); flex-shrink: 0; }
+.date-places-bar { margin: 1rem 0; height: 6px; background: var(--beige); border-radius: 3px; overflow: hidden; }
+.date-places-fill { height: 100%; background: var(--grey-dark); border-radius: 3px; }
+.date-places-txt { font-size: 0.8rem; color: var(--text-mid); font-weight: 500; margin-bottom: 1.5rem; text-align: center; }
+
+/* WHATSAPP */
+.wa-section { padding: 6rem 5rem; background: var(--white); display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; }
+.wa-info h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--text); margin: 0.5rem 0 1rem; line-height: 1.2; }
+.wa-info h2 em { font-style: italic; color: var(--grey-dark); }
+.wa-info > p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; font-weight: 400; margin-bottom: 2.5rem; }
+.wa-groups { display: flex; flex-direction: column; gap: 1.5rem; }
+.wa-group-card { background: white; border-radius: 20px; padding: 1.5rem 2rem; display: flex; gap: 1.5rem; align-items: center; box-shadow: var(--shadow-sm); border: 1px solid rgba(45, 45, 45, 0.08); transition: all 0.3s; text-decoration: none; }
+.wa-group-card:hover { transform: translateX(8px); box-shadow: var(--shadow-premium); }
+.wa-group-icon { width: 56px; height: 56px; border-radius: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.wa-group-icon svg { width: 28px; height: 28px; }
+.wa-icon-info { background: var(--grey-dark); }
+.wa-icon-vip { background: var(--grey-dark); }
+.wa-group-text h4 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+.wa-group-text p { font-size: 0.85rem; color: var(--text-mid); font-weight: 400; line-height: 1.5; }
+.wa-arrow { margin-left: auto; color: var(--grey-dark); font-size: 1.2rem; }
+.wa-form-box { background: white; border-radius: 30px; padding: 3rem; box-shadow: var(--shadow-premium); border: 1px solid rgba(45, 45, 45, 0.1); }
+.wa-form-box h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--text); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+.wa-form-box h3 svg { width: 24px; height: 24px; color: var(--grey-dark); }
+.wa-form-box > p { font-size: 0.9rem; color: var(--text-mid); font-weight: 400; margin-bottom: 2rem; line-height: 1.7; }
+
+/* MODIF : FOOTER AGRANDI ET FONCÉ */
+footer { background: var(--grey-dark); padding: 5rem; display: flex; flex-direction: column; align-items: center; gap: 2.5rem; color: var(--beige); }
+.footer-logo { font-family: var(--font-special); font-size: 2.5rem; color: var(--white); text-align: center; display: flex; align-items: center; gap: 0.8rem; font-weight: 700; }
+.footer-logo svg { width: 28px; height: 28px; }
+.footer-links { display: flex; gap: 3rem; list-style: none; }
+.footer-links a { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245, 242, 235, 0.7); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 0.8rem; color: rgba(245, 242, 235, 0.4); font-weight: 400; display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; width: 100%; justify-content: center; }
+.footer-copy svg { width: 14px; height: 14px; color: var(--white); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  nav { padding: 0 2rem; }
+  .nav-links { display: none; }
+  .hero, .booking-live, .wa-section { grid-template-columns: 1fr; }
+  .hero-content { padding: 2rem; }
+  .hero-visual { padding: 2rem; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-cell:nth-child(2)::after { display: none; }
+  .formations, .cas-section, .booking-live, .presentiel, .wa-section { padding: 4rem 2rem; }
+  .formations-grid, .cas-grid, .dates-grid { grid-template-columns: 1fr; }
+  footer { padding: 4rem 2rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-links { flex-direction: column; text-align: center; gap: 1.5rem; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* FLOATING WA */
+.wa-float { position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; background: var(--grey-dark); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3); cursor: pointer; z-index: 300; transition: all 0.3s; text-decoration: none; }
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4); }
+.wa-float svg { fill: white; width: 32px; height: 32px; }
+
+/* MODALS (Simplified for brevity but kept functional) */
+.modal-overlay { position: fixed; inset: 0; background: rgba(45,45,45,0.6); z-index: 500; display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; backdrop-filter: blur(5px); }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { background: white; max-width: 500px; width: 100%; border-radius: 30px; padding: 3rem; position: relative; transform: translateY(20px) scale(0.98); transition: all 0.4s; max-height: 90vh; overflow-y: auto; }
+.modal-overlay.open .modal { transform: translateY(0) scale(1); }
+.modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--beige); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--text); display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+.success-msg { display: none; text-align: center; padding: 2rem 0; }
+.success-msg.show { display: block; }
+</style>
+</head>
+<body>
+
+<div class="petal-bg" id="petalBg"></div>
+
+<nav>
+  <a href="#" class="nav-logo">Beauty Angel Academy</a>
+  <ul class="nav-links">
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#cas">Études de cas</a></li>
+    <li><a href="#presentiel">Présentiel</a></li>
+    <li><a href="#live">Live</a></li>
+    <li><a href="#contact">WhatsApp</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Appel gratuit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-script">Bienvenue chez</div>
+    <h1 class="hero-title">Apprenez le lissage & les soins capillaires, <em>sans prérequis, à votre rythme.</em></h1>
+    <p class="hero-tagline">Des formations pratiques, premium et immédiatement rentabilisables — pour débutantes, professionnelles et reconverties. Dès 16 ans.</p>
+    <div class="hero-badges">
+      <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Aucun prérequis</span>
+      <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>Dès 16 ans</span>
+      <span class="badge-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>Activité indépendante</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-rose">Réserver mon appel gratuit</a>
+      <a href="#formations" class="btn-ghost">Voir les formations</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-main-card">
+        <div class="hero-card-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=680&h=640&fit=crop&auto=format&q=85" alt="Soin capillaire professionnel">
+        </div>
+      </div>
+      <div class="hero-float-card hero-float-1">
+        <span class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+        <div class="float-text"><strong>Formation complète</strong><br>Lissage tous types</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-band">
+  <div class="marquee-track">
+    <div class="marquee-item">◇ Lissage Brésilien <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Soin Botox Capillaire <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Tanin <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lifting Capillaire <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Luminothérapie <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Soin Profond RICA <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Français <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Indien <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Brésilien <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Soin Botox Capillaire <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Tanin <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lifting Capillaire <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Luminothérapie <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Soin Profond RICA <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Français <span class="marquee-dot"></span></div>
+    <div class="marquee-item">◇ Lissage Indien <span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-cell reveal">
+    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+    <div class="stat-num">4</div>
+    <div class="stat-lbl">Formations disponibles</div>
+  </div>
+  <div class="stat-cell reveal">
+    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <div class="stat-num">0</div>
+    <div class="stat-lbl">Prérequis nécessaires</div>
+  </div>
+  <div class="stat-cell reveal">
+    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+    <div class="stat-num">5</div>
+    <div class="stat-lbl">Techniques de lissage</div>
+  </div>
+  <div class="stat-cell reveal">
+    <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+    <div class="stat-num">100%</div>
+    <div class="stat-lbl">Pratique & rentabilisable</div>
+  </div>
+</div>
+
+<section class="formations" id="formations">
+  <div class="formations-header reveal">
+    <span class="section-kicker">Nos programmes</span>
+    <h2 class="section-title">Choisissez votre <em>formation</em></h2>
+    <p class="section-sub">Quatre parcours progressifs, du plus complet au plus spécialisé — conçus pour vous donner un savoir-faire professionnel immédiatement applicable.</p>
+  </div>
+  <div class="formations-grid">
+    <div class="form-card reveal">
+      <div class="form-card-top">
+        <div class="form-num">01</div>
+        <div class="form-card-meta">
+          <span class="form-type">Formation complète</span>
+          <h3 class="form-title">Lissages & Soins<br>Dernière Génération</h3>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <ul class="form-modules">
+          <li>Connaissance & ciblage — lissage et soin, diagnostic capillaire, matériel</li>
+          <li>5 techniques : Brésilien sans formol, Tanin, Français, Indien, Tanin Botoxé</li>
+          <li>Soins profonds : Botox Capillaire, Lifting, Soin RICA, Luminothérapie</li>
+          <li>Finitions professionnelles & conseils d'entretien post-lissage</li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div class="form-card-top">
+        <div class="form-num">02</div>
+        <div class="form-card-meta">
+          <span class="form-type">Spécialisation</span>
+          <h3 class="form-title">Lissage Brésilien<br>& Tanin</h3>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <ul class="form-modules">
+          <li>Connaissance approfondie du lissage Brésilien et Tanin, diagnostic capillaire</li>
+          <li>Protocole complet lissage Brésilien sans formol & protocole Tanin</li>
+          <li>Luminothérapie capillaire — utilisation de l'appareil</li>
+          <li>Finitions professionnelles & conseils d'entretien post-lissage</li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div class="form-card-top">
+        <div class="form-num">03</div>
+        <div class="form-card-meta">
+          <span class="form-type">Spécialisation</span>
+          <h3 class="form-title">Soins Profonds<br>Dernière Génération</h3>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <ul class="form-modules">
+          <li>Qu'est-ce qu'un soin profond dernière génération — diagnostic & matériel</li>
+          <li>Protocoles : Soin Botox Capillaire, Lifting Capillaire, Soin RICA</li>
+          <li>Luminothérapie & technologies associées</li>
+          <li>Finitions & conseils d'entretien post-soin</li>
+        </ul>
+      </div>
+    </div>
+    <div class="form-card reveal">
+      <div class="form-card-top">
+        <div class="form-num">04</div>
+        <div class="form-card-meta">
+          <span class="form-type">Spécialisation</span>
+          <h3 class="form-title">Soin Botox<br>Capillaire</h3>
+        </div>
+      </div>
+      <div class="form-card-body">
+        <ul class="form-modules">
+          <li>Connaissance du Soin Botox Capillaire — diagnostic & matériel</li>
+          <li>Protocole complet du Soin Botox Capillaire pas à pas</li>
+          <li>Luminothérapie — utilisation et bénéfices de l'appareil</li>
+          <li>Finitions, coupe des fourches, conseils d'entretien</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cas-section" id="cas">
+  <div class="cas-header reveal">
+    <span class="section-kicker">Résultats garantis</span>
+    <h2 class="section-title">Des reconversions <em>réussies</em></h2>
+    <p class="section-sub">Découvrez comment nos élèves ont transformé leur passion en une véritable activité rentable dès la fin de leur formation.</p>
+  </div>
+  <div class="cas-grid">
+
+    <div class="cas-card reveal">
+      <span class="cas-badge">Reconversion</span>
+      <h3 class="cas-title">De salariée à indépendante en 2 mois</h3>
+      <div class="cas-block">
+        <span class="cas-label">Situation initiale</span>
+        <p class="cas-text">Sarah (32 ans) travaillait dans l'administratif et souhaitait lancer sa propre activité beauté sans reprendre 2 ans d'études.</p>
+      </div>
+      <div class="cas-block">
+        <span class="cas-label">Action</span>
+        <p class="cas-text">Suivi de la Formation Complète (Lissages & Soins) + accompagnement via le groupe WhatsApp privé pour ses premiers modèles.</p>
+      </div>
+      <div class="cas-result">
+        <span class="cas-label">Résultat obtenu</span>
+        <div class="cas-result-value">2 400€ / mois générés</div>
+        <p class="cas-text" style="font-size: 0.8rem; margin-top: 0.3rem;">Activité à temps plein depuis son domicile, formation rentabilisée au 2ème mois.</p>
+      </div>
+    </div>
+
+    <div class="cas-card reveal">
+      <span class="cas-badge">Montée en gamme</span>
+      <h3 class="cas-title">Augmentation du ticket moyen en salon</h3>
+      <div class="cas-block">
+        <span class="cas-label">Situation initiale</span>
+        <p class="cas-text">Lucie (27 ans), coiffeuse en salon classique, bloquait sur un chiffre d'affaires stagnant et souhaitait attirer une clientèle premium.</p>
+      </div>
+      <div class="cas-block">
+        <span class="cas-label">Action</span>
+        <p class="cas-text">Spécialisation via la formation "Soins Profonds" (Botox, Lifting, Rica) pour proposer des prestations haut de gamme.</p>
+      </div>
+      <div class="cas-result">
+        <span class="cas-label">Résultat obtenu</span>
+        <div class="cas-result-value">+80% sur ses tarifs</div>
+        <p class="cas-text" style="font-size: 0.8rem; margin-top: 0.3rem;">Prestations facturées entre 150€ et 220€, agenda rempli sur 3 semaines.</p>
+      </div>
+    </div>
+
+    <div class="cas-card reveal">
+      <span class="cas-badge">Étudiante</span>
+      <h3 class="cas-title">Un complément de revenu étudiant idéal</h3>
+      <div class="cas-block">
+        <span class="cas-label">Situation initiale</span>
+        <p class="cas-text">Lina (19 ans) cherchait une activité flexible pour financer ses études, plus rentable que les jobs étudiants classiques.</p>
+      </div>
+      <div class="cas-block">
+        <span class="cas-label">Action</span>
+        <p class="cas-text">Formation ciblée "Lissage Brésilien & Tanin". Exercice les soirs et week-ends avec une communication sur Instagram.</p>
+      </div>
+      <div class="cas-result">
+        <span class="cas-label">Résultat obtenu</span>
+        <div class="cas-result-value">1 200€ part-time</div>
+        <p class="cas-text" style="font-size: 0.8rem; margin-top: 0.3rem;">Un complément de revenu avec seulement 2 à 3 clientes par semaine, sans stress.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="booking-live" id="booking">
+  <div class="booking-col reveal">
+    <span class="section-kicker">Premier contact</span>
+    <h2>Réservez votre<br><em>appel gratuit</em></h2>
+    <p>Avant toute inscription, votre formatrice prend le temps d'échanger avec vous pour comprendre votre situation, vos objectifs et vous guider vers la formation qui vous correspond.</p>
+    <ul class="booking-perks">
+      <li><span class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>Échange personnalisé avec la formatrice</li>
+      <li><span class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9-2-2-2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>Confirmation automatique par e-mail</li>
+      <li><span class="perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></span>100% gratuit, sans engagement</li>
+    </ul>
+    <button class="btn-rose" style="margin-top:1rem;">Choisir mon créneau</button>
+  </div>
+
+  <div class="live-col reveal" id="live">
+    <div class="live-header">
+      <div class="live-dot-badge"><div class="live-pulse"></div>Live hebdomadaire</div>
+      <h3>Sessions live chaque semaine</h3>
+      <p>Votre formatrice présente les formations, répond à vos questions en direct et vous aide à choisir votre parcours.</p>
+    </div>
+    <div class="live-form-box">
+      <h4>Réservez votre place — c'est gratuit</h4>
+      <form>
+        <div class="form-row">
+          <div class="form-group"><label>Prénom</label><input type="text" placeholder="Marie" required></div>
+          <div class="form-group"><label>E-mail</label><input type="email" placeholder="marie@email.com" required></div>
+        </div>
+        <button type="submit" class="btn-rose" style="width:100%;justify-content:center;">Je réserve ma place au live</button>
+      </form>
+      <div class="live-replay-note">
+        <strong>Replay disponible</strong> — Vous recevrez la vidéo même si vous êtes absente.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="presentiel" id="presentiel">
+  <div class="presentiel-header reveal">
+    <span class="section-kicker">Formations en présentiel</span>
+    <h2 class="section-title">Prochaines <em>sessions</em></h2>
+    <p class="section-sub">Réservez votre place en ligne avec un acompte sécurisé. Petits groupes pour un suivi maximal.</p>
+  </div>
+  <div class="dates-grid">
+    <div class="date-card reveal">
+      <div class="date-card-top">
+        <svg class="date-city-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div class="date-ville-badge">Paris — Île-de-France</div>
+      </div>
+      <div class="date-card-body">
+        <div class="date-form-name">Lissages & Soins Dernière Génération</div>
+        <div class="date-info">
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>15 Mars 2025 · 09h00 – 17h00</div>
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Adresse communiquée après réservation</div>
+        </div>
+        <div class="date-places-bar"><div class="date-places-fill" style="width:62%"></div></div>
+        <div class="date-places-txt">5 places restantes sur 8</div>
+        <button class="btn-rose" style="width:100%;justify-content:center;">Réserver ma place (Acompte)</button>
+      </div>
+    </div>
+    <div class="date-card reveal">
+      <div class="date-card-top">
+        <svg class="date-city-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div class="date-ville-badge">Lyon — Rhône-Alpes</div>
+      </div>
+      <div class="date-card-body">
+        <div class="date-form-name">Lissage Brésilien & Tanin</div>
+        <div class="date-info">
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>22 Mars 2025 · 09h00 – 17h00</div>
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Adresse communiquée après réservation</div>
+        </div>
+        <div class="date-places-bar"><div class="date-places-fill" style="width:37%"></div></div>
+        <div class="date-places-txt">3 places restantes sur 8</div>
+        <button class="btn-rose" style="width:100%;justify-content:center;">Réserver ma place (Acompte)</button>
+      </div>
+    </div>
+    <div class="date-card reveal">
+      <div class="date-card-top">
+        <svg class="date-city-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <div class="date-ville-badge">Marseille — PACA</div>
+      </div>
+      <div class="date-card-body">
+        <div class="date-form-name">Soins Profonds Dernière Génération</div>
+        <div class="date-info">
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>5 Avril 2025 · 09h00 – 17h00</div>
+          <div class="date-info-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Adresse communiquée après réservation</div>
+        </div>
+        <div class="date-places-bar"><div class="date-places-fill" style="width:87%"></div></div>
+        <div class="date-places-txt">1 place restante sur 8</div>
+        <button class="btn-rose" style="width:100%;justify-content:center;">Réserver ma place (Acompte)</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wa-section" id="contact">
+  <div class="wa-info reveal">
+    <span class="section-kicker">Communauté & suivi</span>
+    <h2>Rejoignez notre<br><em>communauté WhatsApp</em></h2>
+    <p>Deux groupes WhatsApp pensés pour vous accompagner à chaque étape — avant et pendant votre formation.</p>
+    <div class="wa-groups">
+      <a href="#" class="wa-group-card">
+        <div class="wa-group-icon wa-icon-info"><svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+        <div class="wa-group-text"><h4>Groupe Info & Questions</h4><p>Posez vos questions, recevez les actualités.</p></div>
+      </a>
+    </div>
+  </div>
+  <div class="wa-form-col reveal">
+    <div class="wa-form-box">
+      <h3>Rejoindre l'espace info</h3>
+      <form>
+        <div class="form-group"><label>Numéro WhatsApp</label><input type="tel" placeholder="+33 6 00 00 00 00" required></div>
+        <button type="submit" class="btn-rose" style="width:100%;justify-content:center;">Recevoir le lien d'invitation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Beauty Angel Academy</div>
+  <ul class="footer-links">
+    <li><a href="#formations">Formations en ligne</a></li>
+    <li><a href="#presentiel">Sessions Présentiel</a></li>
+    <li><a href="#cas">Résultats Élèves</a></li>
+    <li><a href="#contact">Contact & WhatsApp</a></li>
+    <li><a href="#">Mentions Légales</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Beauty Angel Academy · Tous droits réservés.</div>
+</footer>
+
+<a href="https://wa.me/33600000000" class="wa-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const petalBg = document.getElementById('petalBg');
+const shapes = ['◇', '○', '△', '◻'];
+for (let i = 0; i < 14; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  p.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+  p.style.cssText = `left:${Math.random()*100}%;font-size:${Math.random()*12+7}px;animation-duration:${Math.random()*25+18}s;animation-delay:${Math.random()*20}s;`;
+  petalBg.appendChild(p);
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 80); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
